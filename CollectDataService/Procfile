@@ -1,2 +1,0 @@
-web: gunicorn CollectDataService:app --timeout 30
-worker: celery --app CollectDataService worker
