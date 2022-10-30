@@ -142,7 +142,7 @@ class WebPageViewSet(ModelViewSet):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-    @action(detail=False, methods=['get'], url_path='identifier')
+    @action(detail=True, methods=['get'], url_path='identifier')
     def get_web_pages_with_id(self, request, pk=None):
         identifier = int(request.query_params.get('id'))
         identifier = WebPageIdentifier.objects.filter(pk=identifier)
