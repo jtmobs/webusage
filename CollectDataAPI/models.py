@@ -15,7 +15,7 @@ class Domain(models.Model):
 
 
 class WebPage(models.Model):
-    webSite = models.ForeignKey(WebSite, on_delete=models.CASCADE, to_field='name')
+    webSite = models.ForeignKey(WebSite, on_delete=models.CASCADE)
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     url = models.URLField(max_length=1024)
     pageStructure = models.TextField()

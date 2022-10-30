@@ -14,6 +14,14 @@ class DomainSerializer(ModelSerializer):
     class Meta:
         model = Domain
         fields = ['domain', 'webSite']
+        
+        
+        
+class WebPageSerializer(ModelSerializer):
+    class Meta:
+        model = WebPage
+        fields = ['url', 'pageStructure']
+        
 
 
 class WebPageIdentifierSerializer(ModelSerializer):
@@ -27,10 +35,6 @@ class WebPageIdentifierSerializer(ModelSerializer):
         fields = ['similarityMethod', ]
 
 
-class WebPageSerializer(ModelSerializer):
-    class Meta:
-        model = WebPage
-        fields = ['url', 'pageStructure']
 
 
 class WebPageListSerializer(ModelSerializer):
