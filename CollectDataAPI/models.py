@@ -15,7 +15,7 @@ class Domain(models.Model):
 
 
 class WebPage(models.Model):
-    webSite = models.ForeignKey(WebSite, on_delete=models.CASCADE)
+    webSite = models.ForeignKey(WebSite, on_delete=models.CASCADE, to_field='name')
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     url = models.URLField(max_length=1024)
     pageStructure = models.TextField()
@@ -29,7 +29,7 @@ class WebPageIdentifier(models.Model):
         LCS_OPTIMIZED = '3', 'MS_Optimized'
         APTED_OPTIMIZED = '4', 'APTED_Optimized'
 
-    webPages = models.ManyToManyField(WebPage, through='WebPageIdentifierWebPage')
+    webPage = models.ManyToManyField(WebPage, through='WebPageIdentifierWebPage')
     url = models.URLField(max_length=1024)
     pageStructure = models.TextField()
     similarityMethod = models.CharField(max_length=2, choices=SimilarityMethods.choices,
